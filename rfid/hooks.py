@@ -30,7 +30,13 @@ app_license = "MIT"
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
+doctype_js = {
+    "Stock Entry" : "rfid/doctype/stock_entry.js"
+    }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
+doctype_list_js = {
+    "Serial No" : "rfid/doctype/serial_no/serial_no_list.js"
+    }
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
 
@@ -125,6 +131,15 @@ app_license = "MIT"
 #		"on_trash": "method"
 #	}
 # }
+
+doc_events = {
+	"Item": {
+		"before_save": "rfid.rfid.doctype.item.item.before_save"
+	},
+    "Stock Entry": {
+		"on_submit": "rfid.rfid.doctype.stock_entry.stock_entry.on_submit"
+	},
+}
 
 # Scheduled Tasks
 # ---------------
