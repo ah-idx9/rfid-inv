@@ -18,4 +18,3 @@ def create_print_rfid(doc):
             rfid_doc.flags.ignore_permissions = 1
             rfid_doc.save()
 
-            return True
