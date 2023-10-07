@@ -17,4 +17,5 @@ def create_print_rfid(doc):
             rfid_doc.rfid = barcode
             rfid_doc.flags.ignore_permissions = 1
             rfid_doc.save()
+        frappe.msgprint('RFID Added In Print Queue')
 

@@ -7,17 +7,6 @@ frappe.ui.form.on('Stock Entry', {
 					method: "rfid.rfid.api.create_print_rfid",
 					args: {
 						doc: frm.doc,
-					},
-					callback: function(r) {
-						if(r.message) {
-                            frappe.msgprint('RFID Added In Print Queue')
-							// let root_company = r.message.length ? r.message[0] : "";
-							// me.page.fields_dict.root_company.set_value(root_company);
-
-							// frappe.db.get_value("Company", {"name": company}, "allow_account_creation_against_child_company", (r) => {
-							// 	frappe.flags.ignore_root_company_validation = r.allow_account_creation_against_child_company;
-							// });
-						}
 					}
 				});
     });
