@@ -16,10 +16,12 @@
  "fields": [
   {
    "fieldname": "item_code",
-   "fieldtype": "Data",
+   "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Item Code",
-   "read_only": 1
+   "options": "Item",
+   "read_only_depends_on": "eval:doc.status",
+   "reqd": 1
   },
   {
    "fieldname": "status",
@@ -34,7 +36,8 @@
    "fieldtype": "Data",
    "in_list_view": 1,
    "label": "Quantity",
-   "read_only": 1
+   "read_only_depends_on": "eval:doc.status",
+   "reqd": 1
   },
   {
    "fieldname": "rfid",
@@ -52,7 +55,7 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2023-10-07 19:38:24.234347",
+ "modified": "2023-10-09 18:03:00.124562",
  "modified_by": "Administrator",
  "module": "Rfid",
  "name": "RFID Print Queue",
