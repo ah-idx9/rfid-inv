@@ -35,7 +35,7 @@
    "insert_after": "batch_no",
    "is_system_generated": 0,
    "is_virtual": 0,
-   "label": "Barcode",
+   "label": "RFID",
    "length": 0,
    "mandatory_depends_on": null,
    "modified": "2023-10-05 21:16:13.674650",
