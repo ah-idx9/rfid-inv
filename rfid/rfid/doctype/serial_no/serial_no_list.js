@@ -1,21 +1,20 @@
 frappe.listview_settings['Serial No'] = {
     onload: function(me) {
 		me.page.add_action_item('Print RFID', function() {
-			frappe.msgprint('RFID Printed')
-            // const boq = me.get_checked_items();
-            // frappe.call({
-            //       method: "reneworld.api.boq_name",
-            //       freeze: true,
-            //       args:{
-            //             "items": boq
-            //       },
-            //       callback: function (r) {
-            //             if (r.message) {
-            //                   frappe.set_route("query-report", "BOQ Stock Report",
-            //                   { boq: r.message});
-            //             }
-            //       }
-            // });
+            const serial_no = me.get_checked_items();
+            frappe.call({
+                  method: "rfid.rfid.api.create_print_rfid_sn",
+                  freeze: true,
+                  args:{
+                        Serial_no_list: serial_no
+                  },
+                  // callback: function (r) {
+                  //       if (r.message) {
+                  //             frappe.set_route("query-report", "BOQ Stock Report",
+                  //             { boq: r.message});
+                  //       }
+                  // }
+            });
 		});
 	},
 }

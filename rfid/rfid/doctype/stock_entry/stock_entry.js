@@ -4,7 +4,7 @@ frappe.ui.form.on('Stock Entry', {
             frm.add_custom_button(__('Print RFID'), function(){
                 // frm.trigger("print_rfid");
                 frappe.call({
-					method: "rfid.rfid.api.create_print_rfid",
+					method: "rfid.rfid.api.create_print_rfid_se",
 					args: {
 						doc: frm.doc,
 					}

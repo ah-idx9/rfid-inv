@@ -24,41 +24,41 @@ frappe.listview_settings['RFID Print Queue'] = {
     //         return [__("Private"), "darkgrey", "public,=,No"];
     //     }
     // },
-    primary_action() {
+    // primary_action() {
 
-		var dialog = new frappe.ui.Dialog({
-			title: __("Create RFID Print Queue"),
-			fields: [
-				{fieldtype: "Link", fieldname: "item_code", label: __("Item Code"), reqd: 1,
-					options: "Item",
-					get_query: function () {
-						return {
-							filters: {
-                                "has_variants" : 0
-                            }
-						};
-					},
-				},
-				{fieldtype: "Data", fieldname: "qty", label: __("Quantity")}
-			]
-		});
+	// 	var dialog = new frappe.ui.Dialog({
+	// 		title: __("Create RFID Print Queue"),
+	// 		fields: [
+	// 			{fieldtype: "Link", fieldname: "item_code", label: __("Item Code"), reqd: 1,
+	// 				options: "Item",
+	// 				get_query: function () {
+	// 					return {
+	// 						filters: {
+    //                             "has_variants" : 0
+    //                         }
+	// 					};
+	// 				},
+	// 			},
+	// 			{fieldtype: "Data", fieldname: "qty", label: __("Quantity")}
+	// 		]
+	// 	});
 
-		dialog.set_primary_action(__("Save"), function() {
-			var btn = this;
-			var values = dialog.get_values();
+	// 	dialog.set_primary_action(__("Save"), function() {
+	// 		var btn = this;
+	// 		var values = dialog.get_values();
 
-			frappe.call({
-                method: "rfid.rfid.api.create_print_rfid_manually",
-                args: {
-                    doc: values,
-                }
-            });
+	// 		frappe.call({
+    //             method: "rfid.rfid.api.create_print_rfid_manually",
+    //             args: {
+    //                 doc: values,
+    //             }
+    //         });
 
-			dialog.hide();
-		});
+	// 		dialog.hide();
+	// 	});
 
-		dialog.show();
-	},
+	// 	dialog.show();
+	// },
     // get_form_link(doc) {
     //     // override the form route for this doc
     // },
