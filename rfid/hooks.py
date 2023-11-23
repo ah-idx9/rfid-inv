@@ -139,6 +139,9 @@ doc_events = {
     "Stock Entry": {
 		"on_submit": "rfid.rfid.doctype.stock_entry.stock_entry.on_submit"
 	},
+    "Asset": {
+		"before_save": "rfid.rfid.doctype.asset.asset.before_save"
+	},
 }
 
 # Scheduled Tasks

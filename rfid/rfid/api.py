@@ -5,7 +5,7 @@ import hashlib
 from frappe.utils import (
 	get_link_to_form
 )
-
+import secrets
 
 @frappe.whitelist()
 def create_print_rfid_se(doc):
@@ -78,3 +78,7 @@ def get_items_html(serial_nos, item_code):
 	""".format(
 		item_code, len(serial_nos), body
 	)
+
+def generate_unique_hex(len):
+    return secrets.token_hex(len)
+    
