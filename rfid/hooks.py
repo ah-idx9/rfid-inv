@@ -233,3 +233,13 @@ doc_events = {
 # auth_hooks = [
 #	"rfid.auth.validate"
 # ]
+
+fixtures = [
+    {"dt": "Custom Field", "filters": [
+        [
+            "name", "in", [
+				"Asset-custom_barcode",
+            ]
+        ]
+    ]}
+]
