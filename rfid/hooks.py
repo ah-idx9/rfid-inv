@@ -234,22 +234,22 @@ doc_events = {
 #	"rfid.auth.validate"
 # ]
 
-# fixtures = [
-#     {"dt": "Custom Field", "filters": [
-#         [
-#             "name", "in", [
-# 				"Asset-custom_barcode",
-#             ]
-#         ]
-#     ]}
-# ]
-
 fixtures = [
-    {"dt": "Property Setter", "filters": [
+    {"dt": "Custom Field", "filters": [
         [
             "name", "in", [
-				"Asset-main-field_order",
+				"Asset-custom_rfid",
             ]
         ]
     ]}
 ]
+
+# fixtures = [
+#     {"dt": "Property Setter", "filters": [
+#         [
+#             "name", "in", [
+# 				"Asset-main-field_order",
+#             ]
+#         ]
+#     ]}
+# ]
