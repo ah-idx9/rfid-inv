@@ -68,7 +68,10 @@ def create_print_rfid_sn(Serial_no_list):
         multiple_title = ("Added RFIDs in Print Queue")
 
         if len(form_links) == 1:
-            frappe.msgprint(("Serial No {0} Added in RFID Print Queue").format(form_links[0]), singular_title)
+            if 'asset_name' in list(doc[0].keys()):
+                frappe.msgprint(("Asset {0} Added in RFID Print Queue").format(form_links[0]), singular_title)    
+            else:
+                frappe.msgprint(("Serial No {0} Added in RFID Print Queue").format(form_links[0]), singular_title)
         elif len(form_links) > 0:
             message = ("The following RFIDs were added: <br><br> {0}").format(
                 get_items_html(form_links, 'RFID')
