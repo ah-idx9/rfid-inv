@@ -47,10 +47,16 @@ def create_print_rfid_sn(Serial_no_list):
         for item in doc:
             rfid_doc = frappe.new_doc('RFID Print Queue')
             created_numbers.append(item.get('name'))
-            rfid_doc.item_code = item.get('item_code')
+            if 'asset_name' in list(item.keys()):
+                rfid_doc.item_code = frappe.db.get_value('Asset',item.get('name'),'item_code')
+            else:
+                rfid_doc.item_code = item.get('item_code')
             rfid_doc.qty = 1
             rfid_doc.status = 'Pending'
-            rfid_data = frappe.db.get_value('Serial No',item.get('name'),'custom_barcode')
+            if 'asset_name' in list(item.keys()):
+                rfid_data = frappe.db.get_value('Asset',item.get('name'),'custom_rfid')
+            else:
+                rfid_data = frappe.db.get_value('Serial No',item.get('name'),'custom_barcode')
             rfid_doc.rfid = rfid_data
             rfid_doc.flags.ignore_permissions = 1
             rfid_doc.save()
