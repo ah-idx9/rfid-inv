@@ -35,7 +35,8 @@ doctype_js = {
     }
 # doctype_list_js = {"doctype" : "public/js/doctype_list.js"}
 doctype_list_js = {
-    "Serial No" : "rfid/doctype/serial_no/serial_no_list.js"
+    "Serial No" : "rfid/doctype/serial_no/serial_no_list.js",
+    "Asset" : "rfid/doctype/asset/asset_list.js",
     }
 # doctype_tree_js = {"doctype" : "public/js/doctype_tree.js"}
 # doctype_calendar_js = {"doctype" : "public/js/doctype_calendar.js"}
