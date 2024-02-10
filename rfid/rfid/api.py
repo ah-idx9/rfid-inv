@@ -6,6 +6,7 @@ from frappe.utils import (
 	get_link_to_form
 )
 import secrets
+from frappe.utils import now_datetime
 
 @frappe.whitelist()
 def create_print_rfid_se(doc):
@@ -91,3 +92,14 @@ def get_items_html(serial_nos, item_code):
 def generate_unique_hex(len):
     return secrets.token_hex(len)
     
+@frappe.whitelist()
+def create_se(**kwargs):
+    body = json.loads(frappe.request.data)
+    doc = frappe.new_doc('Stock Entry')
+    doc.stock_entry_type = "Material Receipt"
+    doc.to_warehouse = body.get("to_warehouse")
+    for i in body.get("items"):
+        doc.append("items",{"item_code": i.get("item_code"),"qty": i.get("qty"),"basic_rate": i.get("basic_rate")})
+    doc.save(ignore_permissions=1)
+    doc.submit()
+    return doc
